@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Human - Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Max Human <br> Gerador de Links</h1>
+        <form action="">
+            <div>
+                <label for="name">Informe o seu nome</label>
+                <input type="text" name="name" id="name" value="Fulano" placeholder="Fulano">
+            </div>
+            <div>
+                <label for="ddd">Insira o DDD</label>
+                <input type="number" name="ddd" id="ddd" min="0" value="34" placeholder="34">
+            </div>
+            <div>
+                <label for="number">Insira o número</label>
+                <input type="text" name="number" id="number" value="9XXXX-XXXX"" placeholder="9XXXX-XXXX" maxlength="10">
+            </div>
+            
+            <!-- <input type="submit" value="Gerar Link" onsubmit="gerarLink()"> -->
+            <button type="button" id="button-gerar">Gerar Link</button>
+        </form>
+
+
+        <div class="link-container">
+            <h2>Clique no link abaixo para copiar!</h2>
+
+            <span>
+                
+            </span>
+        </div>
+        <div class="alert">
+          
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
