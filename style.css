@@ -3,10 +3,12 @@ body {
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(32,169,230,1) 0%, rgba(17,145,212,1) 100%);
 
     color: white;
+    overflow: hidden;
 }
 
 #container form {
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
 }
 
@@ -86,6 +88,11 @@ div.link-container {
     width: 100%;
     margin-bottom: 2rem;
 }
+
+div.link-container span {
+    margin: 0 5rem;
+}
+
 div.alert {
     text-align: center;
 }

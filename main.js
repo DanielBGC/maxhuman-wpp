@@ -2,6 +2,7 @@ const buttonGerar = document.querySelector("#button-gerar");
 buttonGerar.addEventListener("click", gerarLink)
 const linkDiv = document.querySelector(".link-container span");
 var link = "";
+var script = ""
 const alertDiv = document.querySelector(".alert");
 
 function gerarLink() {
@@ -22,10 +23,16 @@ function gerarLink() {
     }
 
     numberInput.value = ""
+    
+    if(nome != "") {
+        script = `&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
+    } else {
+        script = `&text=Bom+dia%21%0D%0ASou+da+MAXHUMAN+UBERABA-MG`
+    }
+    
+    link = `https://api.whatsapp.com/send/?phone=55${ddd}${number}${script}`
 
-    // const link = "https://wa.me/55" + ddd + number + "&text=Bom+dia%21%0D%0ASou+" + nome + "+da+MAXHUMAN+UBERABA-MG"
-
-    link = `https://wa.me/55${ddd}${number}&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
+    //link = `https://wa.me/55${ddd}${number}&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
 
     console.log(link)
     linkDiv.innerHTML = link;
