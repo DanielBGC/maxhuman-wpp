@@ -1,8 +1,14 @@
 const buttonGerar = document.querySelector("#button-gerar");
 buttonGerar.addEventListener("click", gerarLink)
 const linkDiv = document.querySelector(".link-container span");
+
 var link = "";
-var script = ""
+var apresentacao = ""
+var periodo = "";
+var horas;
+
+horas = new Date().getHours();
+
 const alertDiv = document.querySelector(".alert");
 
 function gerarLink() {
@@ -10,7 +16,7 @@ function gerarLink() {
     const nome = nomeInput.value;
     
     const dddInput = document.querySelector("#ddd");
-    const ddd = dddInput.value;
+    var ddd = dddInput.value;
 
     const numberInput = document.querySelector("#number");
     let number = numberInput.value;
@@ -23,14 +29,29 @@ function gerarLink() {
     }
 
     numberInput.value = ""
-    
+
+    if(horas >= 6 && horas < 12) {
+        periodo = `Bom+dia`;
+    } else if(horas >= 12 && horas < 18) {
+        periodo = `Boa+tarde`;
+    }
+
     if(nome != "") {
-        script = `&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
+        apresentacao = `&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
     } else {
-        script = `&text=Bom+dia%21%0D%0ASou+da+MAXHUMAN+UBERABA-MG`
+        apresentacao = `&text=Bom+dia%21%0D%0ASou+da+MAXHUMAN+UBERABA-MG`
     }
     
-    link = `https://api.whatsapp.com/send/?phone=55${ddd}${number}${script}`
+    link = `https://api.whatsapp.com/send/?phone=55${ddd}${number}${apresentacao}`
+
+    if(horas >= 6 && horas < 12) {
+        link = link;
+    }
+    else if(horas >= 12 && horas < 18) {
+        link = link.replace("Bom+dia", "Boa+tarde");
+    } else {
+        link = link.replace("Bom+dia", "Boa+noite");
+    }
 
     //link = `https://wa.me/55${ddd}${number}&text=Bom+dia%21%0D%0ASou+${nome}+da+MAXHUMAN+UBERABA-MG`
 
